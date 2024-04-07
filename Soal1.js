@@ -46,13 +46,41 @@ function findMinMaxNumbers(arr) {
   return minMaxObject;
 };
 
+//fungsi untuk menghitung total dan rata-rata nilai
+function totalAndAverageArray (arr) {
+  let total = 0;
+  for (let i = 0; i < arr.length; i++) {
+    total += arr[i]
+  }
+  
+  let average = total / arr.length;
+  
+  return {
+    total,
+    average
+  };
+}
+
 //-----OUTPUT------
 
 //Pembuatan 100 nilai random 1-50
 console.log(randomNumbers())
+
 //Membagi array menjadi ganjil dan genap
 console.log(splitOddAndEven(randomNumbers()));
+
 //Mencari nilai max dan min pada array ganjil
 console.log("Nilai Min dan Max Ganjil:", findMinMaxNumbers(splitOddAndEven(randomNumbers()).arrOdd));
+
 //Mencari nilai max dan min pada array genap
 console.log("Nilai Min dan Max Genap:", findMinMaxNumbers(splitOddAndEven(randomNumbers()).arrEven));
+
+//Mencari total nilai pada array ganjil
+console.log("Total nilai array ganjil:", totalAndAverageArray(splitOddAndEven(randomNumbers()).arrOdd).total);
+
+console.log("Rata-rata nilai array ganjil:", totalAndAverageArray(splitOddAndEven(randomNumbers()).arrOdd).average);
+
+// Mencari total nilai pada array genap
+console.log("Total nilai array genap:", totalAndAverageArray(splitOddAndEven(randomNumbers()).arrEven).total);
+
+console.log("Rata-rata nilai array genap:", totalAndAverageArray(splitOddAndEven(randomNumbers()).arrEven).average);
