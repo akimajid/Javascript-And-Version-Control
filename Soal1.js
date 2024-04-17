@@ -61,6 +61,54 @@ function totalAndAverageArray (arr) {
   };
 }
 
+function compareArray (arr1, arr2) {
+  let comparison = "";
+  
+  const min1 = findMinMaxNumbers(arr1).minNumber;
+  const min2 = findMinMaxNumbers(arr2).minNumber;
+  
+  if (min1 > min2) {
+    comparison += "Nilai min lebih besar array genap\n";
+  } else if (min1 < min2) {
+    comparison += "Nilai min lebih besar array ganjil\n";
+  } else {
+    comparison += "Nilai min antara array genap dan ganjil sama\n";
+  }
+  
+  const max1 = findMinMaxNumbers(arr1).maxNumber;
+  const max2 = findMinMaxNumbers(arr2).maxNumber;
+  if (max1 > max2) {
+    comparison += "Nilai max lebih besar array genap\n";
+  } else if (max1 < max2) {
+    comparison += "Nilai max lebih besar array ganjil\n";
+  } else {
+    comparison += "Nilai max antara array genap dan ganjil sama\n";
+  }
+  
+  const total1 = totalAndAverageArray(arr1).total;
+  const total2 = totalAndAverageArray(arr1).total;
+  
+  if (total1 > total2) {
+    comparison += "Nilai total lebih besar array genap\n"
+  } else if (total1 < total2) {
+    comparison += "Nilai total lebih besar array ganjil\n"
+  } else {
+    comparison += "Nilai total antara array genap dan ganjil sama\n"
+  }
+  
+  const avg1 = totalAndAverageArray(arr1).average;
+  const avg2 = totalAndAverageArray(arr2).average;
+  
+  if (avg1 > avg2) {
+    comparison += "Nilai rata-rata lebih besar array genap\n";
+  } else if (avg1 < avg2) {
+    comparison += "Nilai rata-rata lebih besar array ganjil\n";
+  } else {
+    comparison += "Nilai rata-rata antara array genap dan ganjil sama\n";
+  }
+  return comparison
+}
+
 //-----OUTPUT------
 
 //Pembuatan 100 nilai random 1-50
@@ -84,3 +132,7 @@ console.log("Rata-rata nilai array ganjil:", totalAndAverageArray(splitOddAndEve
 console.log("Total nilai array genap:", totalAndAverageArray(splitOddAndEven(randomNumbers()).arrEven).total);
 
 console.log("Rata-rata nilai array genap:", totalAndAverageArray(splitOddAndEven(randomNumbers()).arrEven).average);
+
+// Membandingkan kedua array
+console.log("Perbandingan kedua array:")
+console.log(compareArray(splitOddAndEven(randomNumbers()).arrOdd, splitOddAndEven(randomNumbers()).arrEven));
